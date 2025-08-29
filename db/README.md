@@ -1,8 +1,10 @@
-# MariaDB MyISAM to InnoDB Conversion Script
+# Database scripts
+
+## MariaDB MyISAM to InnoDB Conversion
 
 This script automates the process of converting MyISAM tables to InnoDB in a MariaDB database. It is designed for cPanel servers and handles backups, schema exports, and service management.
 
-## Features
+### Features
 
 - Converts MyISAM tables to InnoDB
 - Creates database backups
@@ -11,13 +13,13 @@ This script automates the process of converting MyISAM tables to InnoDB in a Mar
 - Supports partial and full conversion modes
 - Logs all actions to a file in the user's home directory
 
-## Usage
+### Usage
 
 ```bash
 ./mariadb_convert_myisam_to_innodb.sh [OPTION]
 ```
 
-### Options
+#### Options
 
 - `--help`              Show usage information
 - `--check-myisam`      List MyISAM tables in the database
@@ -27,13 +29,13 @@ This script automates the process of converting MyISAM tables to InnoDB in a Mar
 - `--partial`           Full backup and convert selected tables
 - `--full`              Full backup and convert all MyISAM tables
 
-### Example
+#### Example
 
 ```bash
 ./mariadb_convert_myisam_to_innodb.sh --full
 ```
 
-## Notes
+### Notes
 
 - Run as root for system-wide operations; as a cPanel user for user-level operations.
 - Backup and log files are created in `/root` (if root) or `/home/[user]`.
