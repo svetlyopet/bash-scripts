@@ -66,7 +66,8 @@ function show_help() {
     echo -e "   --full                Performs a full backup and converts all MyISAM tables to InnoDB"
     echo
     echo -e "Example usage:"
-    echo -e "./convert_myisam_to_innodb.sh --full"
+    echo 
+    echo -e "   mariadb_convert_myisam_to_innodb.sh --full"
     exit 0
 }
 
@@ -242,22 +243,24 @@ red='\033[0;31m'
 green='\033[0;32m'
 nc='\033[0m'
 
-initialize
-
 case "$mode" in
 	--backup)
+        initialize
 		get_db_info
 		gen_backup
 		;;
 	--export-schema)
+        initialize
 		get_db_info
 		export_schema
 		;;
 	--check-myisam)
+        initialize
 		get_db_info
 		check_myisam
 		;;
 	--partial)
+        initialize
 		get_db_info
 		pre_conv
 		gen_backup
@@ -267,6 +270,7 @@ case "$mode" in
 		post_conv
 		;;
 	--full)
+        initialize
 		get_db_info
 		pre_conv
 		gen_backup
@@ -276,11 +280,9 @@ case "$mode" in
 		post_conv
 		;;
 	--count)
+        initialize
 		get_db_info
 		count
-		;;
-	--help)
-		show_help
 		;;
 	*)
 		show_help
