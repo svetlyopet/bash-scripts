@@ -46,7 +46,7 @@ export SSHPASS=$sftp_pass
 # Print usage information and exit
 help() {
     cat << EOF
-Usage: $0 --local-dir=PATH --sftp-host=HOST --remote-dir=PATH [options]"
+Usage: $0 --local-dir=PATH --sftp-host=HOST --remote-dir=PATH [options]
 
 Uploads files from local_dir to sftp_host:remote_dir using SFTP.
 
@@ -67,7 +67,7 @@ Script config(edit script to configure so we don't pass sensitive info via CLI):
   proxy_cmd    Proxy command for SSH (currently: $proxy_command)
 
 Example:
-    $0 --host example.com --sftp-user myuser --pass mypass --log /path/to/logfile"
+    $0 --host example.com --sftp-user myuser --pass mypass --log /path/to/logfile
 EOF
 }
 
