@@ -52,22 +52,25 @@ fi
 }
 
 function show_help() {
-    echo -e "Automated script to convert tables from using MyISAM to InnoDB"
-    echo -e "Creates a backup and a log file in the home folder of the cPanel"
-    echo -e "user or /root directory if ran as root"
-    echo 
-    echo -e "Options:"
-    echo -e "   --help                Shows this information"
-    echo -e "   --check-myisam        Lists MyISAM tables in the database"
-    echo -e "   --count               Counts primary keys and indexes"
-    echo -e "   --export-schema       Dumps only the schema of a database"
-    echo -e "   --backup              Only backup a database"
-    echo -e "   --partial             Performs a full backup and converts only certain tables"
-    echo -e "   --full                Performs a full backup and converts all MyISAM tables to InnoDB"
-    echo
-    echo -e "Example usage:"
-    echo 
-    echo -e "   mariadb_convert_myisam_to_innodb.sh --full"
+    cat << EOF
+Usage: $0 [OPTION]
+
+Automated script to convert tables from using MyISAM to InnoDB
+Creates a backup and a log file in the home folder of the cPanel
+user or /root directory if ran as root
+
+Options:
+   --help                Shows this information
+   --check-myisam        Lists MyISAM tables in the database
+   --count               Counts primary keys and indexes
+   --export-schema       Dumps only the schema of a database
+   --backup              Only backup a database
+   --partial             Performs a full backup and converts only certain tables
+   --full                Performs a full backup and converts all MyISAM tables to InnoDB
+
+Example usage:
+   $0 --full
+EOF
     exit 0
 }
 
@@ -232,8 +235,8 @@ function start_convert() {
 
 if  [ "$#" -ne 1 ]
 then
-    echo "Usage: ./convert_myisam_to_innodb.sh [OPTION]"
-    echo "Try './convert_myisam_to_innodb.sh --help' for more information."
+    echo "Usage: $0 [OPTION]"
+    echo "Try '$0 --help' for more information."
     exit 0
 fi
 host_serv="$(hostname)"
